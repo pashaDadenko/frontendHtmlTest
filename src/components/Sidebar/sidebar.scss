@@ -3,7 +3,6 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 30px;
-	width: 200px;
 	margin: 100px auto;
 	padding: 20px;
 	background-color: #000000;
@@ -33,6 +32,10 @@
 			border-radius: 20px;
 			cursor: pointer;
 		}
+		.closed {
+			right: -36px;
+			background-color: #000;
+		}
 	}
 
 	.wrapMain {
@@ -59,20 +62,4 @@
 			transition: 0.1s;
 		}
 	}
-}
-.opened {
-	width: 36px;
-}
-.sidebar.opened {
-	align-items: center;
-}
-.sidebar.opened .wrapTop {
-	width: 40px;
-}
-.sidebar.opened .button {
-	right: -36px;
-	background-color: #000;
-}
-.opacity {
-	opacity: 0;
 }

@@ -48,16 +48,16 @@ export default class Sidebar extends React.Component {
 
 	render() {
 		const { isOpened, activePath, hoveredIndex } = this.state;
-		const containerClassnames = classnames('sidebar', { opened: isOpened ? '' : 'opened' });
+		const containerClassnames = classnames('sidebar');
 
 		return (
-			<motion.div className={containerClassnames} initial={{ width: isOpened ? '200px' : '36px' }} animate={{ width: isOpened ? '200px' : '36px' }} transition={{ duration: 3, delay: 0.01 }}>
+			<motion.div className={containerClassnames} initial={{ width: isOpened ? '200px' : '36px' }} animate={{ width: isOpened ? '200px' : '36px' }} transition={{ duration: 0.3, delay: 0.01 }}>
 				<div className='wrapTop'>
 					<img className='logo' src={logo} alt='TensorFlow logo' />
-					<motion.span className={isOpened ? 'logoName' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 3 }}>
+					<motion.span className={isOpened ? 'logoName' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 0.3 }}>
 						TensorFlow
 					</motion.span>
-					<button className='button' onClick={this.toggleSidebar}>
+					<button className={`button ${isOpened ? '' : 'closed'}`} onClick={this.toggleSidebar} style={{ right: isOpened ? '' : '-36px', backgroundColor: isOpened ? '' : '#000' }}>
 						<FontAwesomeIcon icon={isOpened ? 'angle-left' : 'angle-right'} />
 					</button>
 				</div>
@@ -66,7 +66,7 @@ export default class Sidebar extends React.Component {
 					{routes.map((route, index) => (
 						<div className={classnames('wrap', { active: route.path === activePath, hover: hoveredIndex === index })} key={route.title} onClick={() => this.goToRoute(route.path)} onMouseEnter={() => this.handleMouseEnter(index)} onMouseLeave={this.handleMouseLeave}>
 							<FontAwesomeIcon icon={route.icon} />
-							<motion.span className={isOpened ? '' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 3 }}>
+							<motion.span className={isOpened ? '' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 0.3 }}>
 								{route.title}
 							</motion.span>
 						</div>
@@ -82,7 +82,7 @@ export default class Sidebar extends React.Component {
 							onMouseEnter={() => this.handleMouseEnter(index + routes.length)}
 							onMouseLeave={this.handleMouseLeave}>
 							<FontAwesomeIcon icon={route.icon} />
-							<motion.span className={isOpened ? '' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 3 }}>
+							<motion.span className={isOpened ? '' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 0.3 }}>
 								{route.title}
 							</motion.span>
 						</div>
