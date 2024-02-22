@@ -1,0 +1,78 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 30px;
+	width: 200px;
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #000000;
+	border: 2px solid #20293f;
+	box-shadow: 0 0 0 1px #000000;
+	border-radius: 15px;
+	position: relative;
+
+	.wrapTop {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		.logo {
+			width: 40px;
+			height: 40px;
+		}
+		.logoName {
+			font-size: 20px;
+		}
+		.button {
+			position: absolute;
+			top: 30px;
+			right: -12px;
+			border: none;
+			background-color: #1e293b;
+			padding: 5px 8px;
+			border-radius: 20px;
+			cursor: pointer;
+		}
+	}
+
+	.wrapMain {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		&:last-child {
+			margin-top: 110px;
+		}
+		.wrap {
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			gap: 15px;
+			cursor: pointer;
+		}
+		.active {
+			background-color: #000c45;
+			border-radius: 13px;
+		}
+		.hover {
+			background-color: #0f172a;
+			border-radius: 13px;
+			transition: 0.1s;
+		}
+	}
+}
+.opened {
+	width: 36px;
+}
+.sidebar.opened {
+	align-items: center;
+}
+.sidebar.opened .wrapTop {
+	width: 40px;
+}
+.sidebar.opened .button {
+	right: -36px;
+	background-color: #000;
+}
+.opacity {
+	opacity: 0;
+}
