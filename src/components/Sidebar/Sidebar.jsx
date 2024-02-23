@@ -64,7 +64,12 @@ export default class Sidebar extends React.Component {
 
 				<div className='wrapMain'>
 					{routes.map((route, index) => (
-						<div className={classnames('wrap', { active: route.path === activePath, hover: hoveredIndex === index })} key={route.title} onClick={() => this.goToRoute(route.path)} onMouseEnter={() => this.handleMouseEnter(index)} onMouseLeave={this.handleMouseLeave}>
+						<div
+							className={classnames('wrap', { active: route.path === activePath, hover: hoveredIndex === index && window.innerWidth > 1000 })}
+							key={route.title}
+							onClick={() => this.goToRoute(route.path)}
+							onMouseEnter={() => this.handleMouseEnter(index)}
+							onMouseLeave={this.handleMouseLeave}>
 							<FontAwesomeIcon icon={route.icon} />
 							<motion.span className={isOpened ? '' : 'opacity'} initial={{ x: isOpened ? 0 : 50, opacity: isOpened ? 1 : 0 }} animate={{ x: isOpened ? 0 : -50, opacity: isOpened ? 1 : 0 }} transition={{ duration: 0.3 }}>
 								{route.title}
@@ -76,7 +81,7 @@ export default class Sidebar extends React.Component {
 				<div className='wrapMain'>
 					{bottomRoutes.map((route, index) => (
 						<div
-							className={classnames('wrap', { active: route.path === activePath, hover: hoveredIndex === index + routes.length })}
+							className={classnames('wrap', { active: route.path === activePath, hover: hoveredIndex === index + routes.length && window.innerWidth > 1000 })}
 							key={route.title}
 							onClick={() => this.goToRoute(route.path)}
 							onMouseEnter={() => this.handleMouseEnter(index + routes.length)}
